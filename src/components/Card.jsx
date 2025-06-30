@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Zorua from '../assets/Zorua.png'
 import fetchData from './api'
+import '../styles/Card.css'
 function Card({ id, pushNewClick}) {
     const testVar = "Zorua"
     const testUrl = 'https://pokeapi.co/api/v2/pokemon/570/'

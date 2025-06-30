@@ -1,5 +1,5 @@
 import Card from "./Card";
-import crypto from 'crypto';
+import '../styles/CardList.css';
 function CardList({pushNewClick}) {
 
     
