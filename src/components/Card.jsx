@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Zorua from '../assets/Zorua.png'
 import fetchData from './api'
-function Card({ id }) {
+function Card({ id, pushNewClick}) {
     const testVar = "Zorua"
     const testUrl = 'https://pokeapi.co/api/v2/pokemon/570/'
     const url = 'https://pokeapi.co/api/v2/pokemon/'
@@ -14,7 +14,7 @@ function Card({ id }) {
     }
     const getName = () => {
         if (!loading) {
-            console.log(data);
+            //console.log(data);
             return (data.name);
         }
     }
@@ -34,11 +34,17 @@ function Card({ id }) {
             }
         }
     }
+    const handleClick = () => {
+        console.log(id);
+        pushNewClick(id);
+    }
     return (
         <div className='card'>
             <div className="card-name">
                 <h4 className='card-title'>{getNum() + ':'} {getName()}</h4>
-                <div className="card-image">
+                <div className="card-image"
+                    onClick={handleClick}
+                >
                     <img src={getSprite()}></img>
                 </div>
             </div>

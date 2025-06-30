@@ -1,12 +1,16 @@
 import Card from "./Card";
 import crypto from 'crypto';
-function CardList() {
+function CardList({pushNewClick}) {
 
     
     const testUrlIds = Array.from({length: 10}, () => Math.floor(Math.random() * (151-1) + 1));
 
     const cardLists = testUrlIds.map(id =>
-            <Card key= {self.crypto.randomUUID()} id={id}></Card>
+            <Card 
+                key= {self.crypto.randomUUID()} 
+                id={id}
+                pushNewClick={pushNewClick}>
+            </Card>
     );
 
     return (
