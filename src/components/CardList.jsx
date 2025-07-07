@@ -19,7 +19,6 @@ function CardList({pushNewClick, pokemonSelected}) {
                 console.log("Dupe Detected, regenerating");
                 randomPokemon = Math.floor(Math.random() * (151-1) +1);
                 continue;
-
             }
             duplicate = false;
         }

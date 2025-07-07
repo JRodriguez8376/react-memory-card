@@ -1,42 +1,67 @@
 import { useEffect, useState } from "react";
 
 import CardList from "./CardList";
+import GameMenu from "./GameMenu";
 
 function PlayArea() {
-const [clicked, setClicked] = useState(null); //Array variable to contain list of ids that player has clicked
+    const [clicked, setClicked] = useState(null); //Array variable to contain list of ids that player has clicked
+    const [gameState, setGameState] = useState(false);
+    const [count, setCount] = useState(0);
 
-const [count, setCount] = useState(0);
-const pushNewClick = (newID) => {
-    if(clicked == null) {
-        const newList = [newID]
-        console.log("add New pokemon:", newID)
-        setClicked(newList);
-        setCount(1);
-        return;
-    }
-    if(clicked.includes(newID)) {
-        // change state of playarea to fail
-        setCount('Fail');
-
-    } else {
-        // add pokemon to list that was clicked
+    const pushNewClick = (newID) => {
+        if (clicked == null) {
+            const newList = [newID]
+            console.log("add New pokemon:", newID)
+            setClicked(newList);
+            setCount(1);
+            return;
+        }
         const newList = clicked;
-        newList.push(newID);
-        console.log("add New pokemon:", newID)
-        setClicked(newList);
-        setCount(newList.length);
+        if (clicked.includes(newID)) {
+            // change state of playarea to fail
+            setGameState(false);
+        }
+            newList.push(newID);
+            console.log("add New pokemon:", newID)
+            setClicked(newList);
+            setCount(newList.length); 
     }
-}
+    const showGame = () => {
 
-    return(
-        <div className="play-area">
+        
+        if(gameState) {
+            //if count has duplicated,
+        return(
+            <>
             {count}
-            <CardList 
+            <CardList
                 pushNewClick={pushNewClick}
                 pokemonSelected={clicked}
-
             />
+            </>
+        )               
+    } else {
+        return(
+            <GameMenu
+                setGameState={setGameState}
+                count={count}
+                setCount={setCount}
+                clicked={clicked}
+                setClicked={setClicked}
+            >
+
+            </GameMenu>
+        )
+    }
+    }
+    return (
+        <div className="play-area">
+            
+            {
+            showGame()
+            }
         </div>
+        
     )
 
 }
