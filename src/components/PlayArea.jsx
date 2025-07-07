@@ -30,7 +30,6 @@ function PlayArea() {
 
         
         if(gameState) {
-            //if count has duplicated,
         return(
             <>
             {count}
