@@ -1,21 +1,33 @@
 import Card from "./Card";
 import '../styles/CardList.css';
 function CardList({pushNewClick, pokemonSelected}) {
-
-    
-    const testUrlIds = Array.from({length: 10}, () => Math.floor(Math.random() * (151-1) + 1));
-    const generateUniqueValue = (playerList, randomList) => {
+    const generateUniqueValue = (playerList) => {
         //generate unique value
         //check playerList to find unique value not in range
-        //push to new array for index 0
-        // push random values onto array for index 1-9
-        // shuffle array
+        //regenerate number if it exists in player array
+        // add # to
         //return new array
+        let randomList = Array.from({length: 10}, () => Math.floor(Math.random() * (151-1) + 1));
         if(playerList == null) {
-            
+            return(randomList);
         }
+        let duplicate = true;
+        let randomPokemon = Math.floor(Math.random() * (151-1) +1);
+        while(duplicate) {
+            // generate random value, if it is in clicked array, regenerate
+            if(playerList.includes(randomPokemon)) {
+                console.log("Dupe Detected, regenerating");
+                randomPokemon = Math.floor(Math.random() * (151-1) +1);
+                continue;
+
+            }
+            duplicate = false;
+        }
+        
+        randomList[Math.floor(Math.random()* (10-1))] = randomPokemon;
+        return(randomList);
     }
-    const cardLists = testUrlIds.map(id =>
+    const cardLists = generateUniqueValue(pokemonSelected).map(id =>
             <Card 
                 key= {self.crypto.randomUUID()} 
                 id={id}
