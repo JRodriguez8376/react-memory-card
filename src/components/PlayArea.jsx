@@ -4,6 +4,7 @@ import CardList from "./CardList";
 
 function PlayArea() {
 const [clicked, setClicked] = useState(null); //Array variable to contain list of ids that player has clicked
+
 const [count, setCount] = useState(0);
 const pushNewClick = (newID) => {
     if(clicked == null) {
@@ -32,6 +33,8 @@ const pushNewClick = (newID) => {
             {count}
             <CardList 
                 pushNewClick={pushNewClick}
+                pokemonSelected={clicked}
+
             />
         </div>
     )
