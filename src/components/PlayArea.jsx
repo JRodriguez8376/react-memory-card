@@ -33,7 +33,7 @@ function PlayArea() {
         if(gameState) {
         return(
             <>
-            {count}
+            <div>Score: {count}</div>
             <CardList
                 pushNewClick={pushNewClick}
                 pokemonSelected={clicked}

@@ -1,13 +1,12 @@
 
 .card {
-    background-color: black;
-    
+    background-color: transparent;
 }
 .card-image {
     background-color: white;
     border: red 4px solid;
     border-radius: 5%;
-    background-image: url("./public/assets/background/images.jfif");
+    background-image: url("./assets/background/images.jfif");
     background-position: center;
     background-size: cover;
 }

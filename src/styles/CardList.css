@@ -3,4 +3,10 @@
 
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  background-image: url("../assets/background/pokedex_background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100%;
+  background-position: center;
+  border: black 1rem solid;
 }

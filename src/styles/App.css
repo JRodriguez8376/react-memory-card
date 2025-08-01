@@ -43,6 +43,15 @@
 .card {
   padding: 2em;
 }
+.card-title {
+  text-align: left;
+  font-size: 0.8rem;
+}
+.play-area {
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+}
 
 .read-the-docs {
   color: #888;
