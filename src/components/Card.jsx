@@ -3,11 +3,15 @@ import "../styles/Card.css"
 import fetchData from './api'
 import '../styles/Card.css'
 function Card({ id, pushNewClick}) {
+    const assetLoad = './assets/icons/pokeball/pokeball_img.png';
     const assetSrc =  '../assets/icons/types/';
     const url = 'https://pokeapi.co/api/v2/pokemon/'
     const { data, loading, error } = fetchData(url + id + '/');
 
     const getSprite = () => {
+        if(loading) {
+            return (assetLoad);
+        }
         if (!loading) {
             return (data.sprites.front_default);
         }
@@ -73,7 +77,7 @@ function Card({ id, pushNewClick}) {
                 <div className="card-image"
                     onClick={handleClick}
                 >
-                    <img src={getSprite()}></img>
+                    <img src={getSprite()} width={96} height={96}></img>
                 </div>
             </div>
             <div className='card-footer'>

@@ -7,6 +7,7 @@ function PlayArea() {
     const [clicked, setClicked] = useState(null); //Array variable to contain list of ids that player has clicked
     const [gameState, setGameState] = useState(false);
     const [count, setCount] = useState(0);
+    const [loadImages, setLoadImages] = useState(false);
 
     const pushNewClick = (newID) => {
         if (clicked == null) {
@@ -36,6 +37,8 @@ function PlayArea() {
             <CardList
                 pushNewClick={pushNewClick}
                 pokemonSelected={clicked}
+                loadImages={loadImages}
+                setLoadImages={setLoadImages}
             />
             </>
         )               

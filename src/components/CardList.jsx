@@ -1,6 +1,6 @@
 import Card from "./Card";
 import '../styles/CardList.css';
-function CardList({pushNewClick, pokemonSelected}) {
+function CardList({pushNewClick, pokemonSelected, loadImages, setLoadImages}) {
     const generateUniqueValue = (playerList) => {
         //generate unique value
         //check playerList to find unique value not in range
